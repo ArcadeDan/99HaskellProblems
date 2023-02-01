@@ -8,7 +8,9 @@ myLast = last
 --problem2
 myButLast :: [c] -> c
 myButLast = last . init
---problem3
+
+
+-- not doing problem 3 sorry -- 
 
 --problem 4
 myLength :: (Foldable t, Ord a) => p -> t a -> a
@@ -21,7 +23,6 @@ myReverse = reverse
 
 isPalindrome :: Eq a => [a] -> Bool
 isPalindrome n = (reverse n) == n
-
 
 --problem 7
 
