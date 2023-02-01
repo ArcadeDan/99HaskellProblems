@@ -24,8 +24,7 @@ myReverse = reverse
 isPalindrome :: Eq a => [a] -> Bool
 isPalindrome n = (reverse n) == n
 
---problem 7
-
+-- not doing problem 7 sorry
 
 main :: IO ()
 main = putStrLn "Goodbye cruel world..."
