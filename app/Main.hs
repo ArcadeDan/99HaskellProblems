@@ -26,5 +26,11 @@ isPalindrome n = (reverse n) == n
 
 -- not doing problem 7 sorry
 
+-- problem 8 --
+compress :: Eq a => [a] -> [a]
+compress [] = []
+compress (x:xs) = x : (compress $ dropWhile (== x) xs) 
+
+
 main :: IO ()
 main = putStrLn "Goodbye cruel world..."
