@@ -32,5 +32,26 @@ compress [] = []
 compress (x:xs) = x : (compress $ dropWhile (== x) xs) 
 
 
+quicksort :: Ord a => [a] -> [a]
+quicksort [] = []
+quicksort (x:xs) =
+    let smallerSorted = quicksort [a | a <- xs, a <= x]
+        biggerSorted = quicksort [a | a <- xs, a > x]
+    in smallerSorted ++ [x] ++ biggerSorted
+
+divide :: [a] -> ([a], [a])
+divide =
+    \list ->
+    case list of
+        [] -> ([], [])
+        x:xs ->
+            let (odds, evens) = divide xs
+            in (x:evens, odds)
+
+
+
+
+
+
 main :: IO ()
 main = putStrLn "Goodbye cruel world..."
