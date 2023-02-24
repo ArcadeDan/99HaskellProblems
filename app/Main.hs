@@ -1,6 +1,6 @@
 module Main where
 -- https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems --
-
+import Data.List
 --problem1
 myLast :: [a] -> a
 myLast = last
@@ -68,6 +68,11 @@ pack (x:xs) = let (first, rest) = span (==x) xs
 pack [] = []
 
 
+-- Problem 10
+encode :: Eq a => [a] -> [(Int, [a])]
+encode (x:xs) = let (first, rest) = span (==x) xs
+                    in (length (x:first), x:first) : encode rest
+encode [] = []
 
 main :: IO ()
 main = putStrLn "Goodbye cruel world..."
