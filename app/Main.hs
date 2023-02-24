@@ -39,7 +39,8 @@ quicksort (x:xs) =
         biggerSorted = quicksort [a | a <- xs, a > x]
     in smallerSorted ++ [x] ++ biggerSorted
 
-divide :: [a] -> ([a], [a])
+
+divide :: [Int] -> ([Int], [Int])
 divide =
     \list ->
     case list of
@@ -50,6 +51,21 @@ divide =
 
 
 
+fibb :: Integer -> Integer
+fibb =
+    \numbers ->
+    case numbers of
+        0 -> 0
+        1 -> 1
+        n -> fibb(n-1) + fibb(n-2) 
+        
+
+
+-- Problem 9
+pack :: Eq a => [a] -> [[a]]
+pack (x:xs) = let (first, rest) = span (==x) xs
+                in (x:first) : pack rest
+pack [] = []
 
 
 
