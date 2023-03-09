@@ -1,9 +1,12 @@
 module Main where
 -- https://wiki.haskell.org/H-99:_Ninety-Nine_Haskell_Problems --
 import Data.List
+import Control.Monad
 --problem1
 myLast :: [a] -> a
 myLast = last
+
+
 
 --problem2
 myButLast :: [c] -> c
@@ -21,6 +24,8 @@ myReverse :: [a] -> [a]
 myReverse = reverse
 -- problem 6
 
+
+
 isPalindrome :: Eq a => [a] -> Bool
 isPalindrome n = (reverse n) == n
 
@@ -32,12 +37,17 @@ compress [] = []
 compress (x:xs) = x : (compress $ dropWhile (== x) xs) 
 
 
+
 quicksort :: Ord a => [a] -> [a]
 quicksort [] = []
 quicksort (x:xs) =
     let smallerSorted = quicksort [a | a <- xs, a <= x]
         biggerSorted = quicksort [a | a <- xs, a > x]
     in smallerSorted ++ [x] ++ biggerSorted
+
+
+calculate :: Integral a => a -> a -> a
+calculate t b = sum $ filter (\x -> x `mod` 2 == 0) [b..t]   
 
 
 divide :: [Int] -> ([Int], [Int])
@@ -102,4 +112,7 @@ instance Show TrafficLight where
 
 
 main :: IO ()
-main = putStrLn "Goodbye cruel world..."
+main = do 
+    rs <- sequence [getLine, getLine, getLine]
+    print rs
+        
